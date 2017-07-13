@@ -1,11 +1,9 @@
-// algorithm.cpp : 定义控制台应用程序的入口点。
-//
-
-#include "stdafx.h"
-
+#include "benchmark.h"
 
 int main()
 {
+	auto data = generate(10, 4);
+	print(data);
     return 0;
 }
 
