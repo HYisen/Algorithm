@@ -1,57 +1,83 @@
 #pragma once
 
-#include <array>
+#include <vector>
+#include <iostream>
 
 namespace mergesort
 {
-	using std::array;
+	using std::vector;
 
-	template<typename T, size_t size>
-	array<T, size> sort(const array<T, size> &orig);
+	template<typename T>
+	vector<T> sort(const vector<T> &orig);
 
-	//It's quite tricky to calculate size during the compiling, isn't it?
-	template<typename T, size_t ls, size_t rs>
-	array<T, ls + rs> merge(const array<T, ls> &lhs, const array<T, rs> &rhs);
+	template<typename T>
+	vector<T> merge(const vector<T> &lhs, const vector<T> &rhs);
 
-	template<typename T, size_t ls, size_t rs>
-	array<T, ls + rs> merge(const array<T, ls>& lhs, const array<T, rs>& rhs)
+	template<typename T>
+	vector<T> sort(const vector<T>& orig)
 	{
-		array<T, ls + rs> rtn{};
-		size_t li{ 0 }, ri{ 0 }, it{ 0 };
+		if (orig.size() == 1)
+		{
+			return orig;
+		}
+		else
+		{
+			auto mid = orig.cbegin() + orig.size() / 2;
+			//std::cout << "mid = " << mid - orig.cbegin() << std::endl;
+			//system("pause");
+			return merge(
+				sort(vector<T>{orig.cbegin(), mid}),
+				sort(vector<T>{mid, orig.cend()}));
+		}
+	}
+
+	template<typename T>
+	vector<T> merge(const vector<T>& lhs, const vector<T>& rhs)
+	{
+		vector<T> rtn{};
+
+		//for (auto one : lhs)
+		//{
+		//	std::cout << one << std::ends;
+		//}
+		//std::cout << std::endl;
+		//for (auto one : rhs)
+		//{
+		//	std::cout << one << std::ends;
+		//}
+		//std::cout << std::endl;
+
+		auto li = lhs.cbegin();
+		auto ri = rhs.cbegin();
+		auto it = &li;
+		
 		while (true)
 		{
-			if (lhs[li] >= rhs[ri])
+			it = (*li >= *ri) ? &li : &ri;
+			//std::cout << *li << " vs " << *ri << std::endl;
+			//system("pause");
+			rtn.push_back(**it);
+			(*it)++;
+			if (li == lhs.cend())
 			{
-				rtn[it] = lhs[li];
-				li++;
-				if (li == lhs.size())
+				while (ri != rhs.cend())
 				{
-					while (ri != rhs.size())
-					{
-						rtn[it] = rhs[ri];
-						it++;
-						ri++;
-					}
-					break;
+					rtn.push_back(*ri);
+					ri++;
 				}
+				break;
 			}
-			else
+			else if(ri == rhs.cend())
 			{
-				rtn[it] = rhs[ri];
-				ri++;
-				if (ri == rhs.size())
+				while (li != lhs.cend())
 				{
-					while (li != lhs.size())
-					{
-						rtn[it] = lhs[li];
-						it++;
-						li++;
-					}
-					break;
+					rtn.push_back(*li);
+					li++;
 				}
+				break;
 			}
-			it++;
 		}
+
 		return rtn;
 	}
 }
