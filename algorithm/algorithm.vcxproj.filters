@@ -21,15 +21,15 @@
     <ClInclude Include="mergesort.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="heapsort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="algorithm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="benchmark.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="mergesort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

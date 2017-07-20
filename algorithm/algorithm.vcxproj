@@ -143,12 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="benchmark.h" />
+    <ClInclude Include="heapsort.h" />
     <ClInclude Include="mergesort.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="algorithm.cpp" />
     <ClCompile Include="benchmark.cpp" />
-    <ClCompile Include="mergesort.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
