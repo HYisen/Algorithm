@@ -145,6 +145,7 @@
     <ClInclude Include="benchmark.h" />
     <ClInclude Include="heapsort.h" />
     <ClInclude Include="mergesort.h" />
+    <ClInclude Include="quicksort.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="algorithm.cpp" />

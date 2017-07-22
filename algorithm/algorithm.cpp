@@ -1,6 +1,7 @@
 #include "benchmark.h"
 #include "mergesort.h"
 #include "heapsort.h"
+#include "quicksort.h"
 
 #include <iostream>
 #include <vector>
@@ -21,11 +22,18 @@ void test()
 	cout << a << endl;
 
 	std::vector<int> data{ 1,2,3,5,8,9,4,6 };
+
 	//for (auto one : mergesort::sort(data))
 	//{
 	//	cout << one << ends;
 	//}
-	for (auto one : heapsort::sort(data))
+
+	//for (auto one : heapsort::sort(data))
+	//{
+	//	cout << one << ends;
+	//}
+
+	for (auto one : quicksort::sort(data))
 	{
 		cout << one << ends;
 	}
