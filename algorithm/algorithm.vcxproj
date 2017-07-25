@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClCompile Include="algorithm.cpp" />
     <ClCompile Include="benchmark.cpp" />
+    <ClCompile Include="countingsort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

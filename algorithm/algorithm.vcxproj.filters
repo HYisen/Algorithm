@@ -35,6 +35,9 @@
     <ClCompile Include="benchmark.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="countingsort.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.md" />

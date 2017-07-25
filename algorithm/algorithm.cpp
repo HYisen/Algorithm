@@ -2,6 +2,7 @@
 #include "mergesort.h"
 #include "heapsort.h"
 #include "quicksort.h"
+#include "countingsort.h"
 
 #include <iostream>
 #include <vector>
@@ -37,6 +38,14 @@ void test()
 	{
 		cout << one << ends;
 	}
+
+	cout << endl;
+
+	std::vector<int> data1{ 1,2,4,0,3,1,0,2,3,4,0,1,1 };
+	for (auto one : countingsort::sort(data1, 5))
+	{
+		cout << one << ends;
+	}
 }
 
 int main()
@@ -46,6 +55,6 @@ int main()
 
 	test();
 
-    return 0;
+	return 0;
 }
 
