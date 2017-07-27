@@ -12,7 +12,7 @@ namespace countingsort
 	template<typename T>
 	vector<T> sort(vector<T>& orig, size_t variety)
 	{
-		vector<T> stats = vector<T>(variety, 0);
+		vector<T> stats(variety, 0);
 		for (auto one : orig)
 		{
 			stats[one]++;

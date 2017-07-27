@@ -3,6 +3,7 @@
 #include "heapsort.h"
 #include "quicksort.h"
 #include "countingsort.h"
+#include "radixsort.h"
 
 #include <iostream>
 #include <vector>
@@ -38,7 +39,6 @@ void test()
 	{
 		cout << one << ends;
 	}
-
 	cout << endl;
 
 	std::vector<int> data1{ 1,2,4,0,3,1,0,2,3,4,0,1,1 };
@@ -46,6 +46,14 @@ void test()
 	{
 		cout << one << ends;
 	}
+	cout << endl;
+
+	std::vector<int> data2{ 123,456,258,698,451,102,52,8,984 };
+	for (auto one : radixsort::sort(data2))
+	{
+		cout << one << ends;
+	}
+	cout << endl;
 }
 
 int main()
@@ -57,4 +65,3 @@ int main()
 
 	return 0;
 }
-
