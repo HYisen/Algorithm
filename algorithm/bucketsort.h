@@ -23,7 +23,13 @@ namespace bucketgsort
 	template<typename T>
 	vector<T> sort(vector<T>& orig)
 	{
-		return vector<T>();
+		//The Stream in Java seems would work perfectly there.
+		vector<vector<T>> data = resolve(orig,100);
+		for (auto one : data)
+		{
+			insert_sort(one);
+		}
+		return assemble(data);
 	}
 
 	template<typename T>
@@ -42,13 +48,35 @@ namespace bucketgsort
 	template<typename T>
 	vector<T> insert_sort(vector<T>& orig)
 	{
-		return vector<T>();
+		int max;
+		for (int i = 0; i != orig.size(); ++i)
+		{
+			max = i;
+			//After a long consieration, I think != is as workable as < .
+			for (int j = i+1; j != orig.size(); ++j)
+			{
+				if (orig[j] > orig[max])
+				{
+					max = j;
+				}
+			}
+			std::swap(orig[max], orig[i]);
+		}
+		return orig;
 	}
 
 	template<typename T>
 	vector<T> assemble(vector<vector<T>>& orig)
 	{
-		return vector<T>();
+		vector<T> rtn{};
+		for (auto one : orig)
+		{
+			for (auto two : one)
+			{
+				rtn.push_back(two);
+			}
+		}
+		return rtn;
 	}
 
 }

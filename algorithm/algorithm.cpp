@@ -54,6 +54,13 @@ void test()
 		cout << one << ends;
 	}
 	cout << endl;
+
+	std::vector<int> data3{ 123,456,258,698,451,102,52,4,984 };
+	for (auto one : radixsort::sort(data3))
+	{
+		cout << one << ends;
+	}
+	cout << endl;
 }
 
 int main()
