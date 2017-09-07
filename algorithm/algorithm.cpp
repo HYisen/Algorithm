@@ -4,6 +4,7 @@
 #include "quicksort.h"
 #include "countingsort.h"
 #include "radixsort.h"
+#include "rselect.h"
 
 #include <iostream>
 #include <vector>
@@ -61,13 +62,18 @@ void test()
 		cout << one << ends;
 	}
 	cout << endl;
+
+	std::vector<int> data4{ 123,456,258,888,451,102,52,4,984 };
+
+	for (int k = 0; k != data4.size(); ++k)
+	{
+		cout <<rselect::select(std::vector<int>(data4), 0, data4.size(),k) << ends;
+	}
+	cout << endl;
 }
 
 int main()
 {
-	auto data = generate(10, 4);
-	print(data);
-
 	test();
 
 	return 0;

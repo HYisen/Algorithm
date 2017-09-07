@@ -148,11 +148,13 @@
     <ClInclude Include="mergesort.h" />
     <ClInclude Include="quicksort.h" />
     <ClInclude Include="radixsort.h" />
+    <ClInclude Include="rselect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="algorithm.cpp" />
     <ClCompile Include="benchmark.cpp" />
     <ClCompile Include="countingsort.h" />
+    <ClCompile Include="rselect.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
