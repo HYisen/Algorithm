@@ -5,6 +5,7 @@
 #include "countingsort.h"
 #include "radixsort.h"
 #include "rselect.h"
+#include "nnodebinarytree.h"
 
 #include <iostream>
 #include <vector>
@@ -15,16 +16,16 @@ void test()
 	using std::endl;
 	using std::ends;
 
-	int a = 4;
-	int b = 8;
-	int &ref = a;
-	cout << a << endl;
-	cout << ref << endl;
-	ref = 10;
-	cout << ref << endl;
-	cout << a << endl;
+	//int a = 4;
+	//int b = 8;
+	//int &ref = a;
+	//cout << a << endl;
+	//cout << ref << endl;
+	//ref = 10;
+	//cout << ref << endl;
+	//cout << a << endl;
 
-	std::vector<int> data{ 1,2,3,5,8,9,4,6 };
+	//std::vector<int> data{ 1,2,3,5,8,9,4,6 };
 
 	//for (auto one : mergesort::sort(data))
 	//{
@@ -36,40 +37,57 @@ void test()
 	//	cout << one << ends;
 	//}
 
-	for (auto one : quicksort::sort(data))
-	{
-		cout << one << ends;
-	}
-	cout << endl;
+	//for (auto one : quicksort::sort(data))
+	//{
+	//	cout << one << ends;
+	//}
+	//cout << endl;
 
-	std::vector<int> data1{ 1,2,4,0,3,1,0,2,3,4,0,1,1 };
-	for (auto one : countingsort::sort(data1, 5))
-	{
-		cout << one << ends;
-	}
-	cout << endl;
+	//std::vector<int> data1{ 1,2,4,0,3,1,0,2,3,4,0,1,1 };
+	//for (auto one : countingsort::sort(data1, 5))
+	//{
+	//	cout << one << ends;
+	//}
+	//cout << endl;
 
-	std::vector<int> data2{ 123,456,258,698,451,102,52,8,984 };
-	for (auto one : radixsort::sort(data2))
-	{
-		cout << one << ends;
-	}
-	cout << endl;
+	//std::vector<int> data2{ 123,456,258,698,451,102,52,8,984 };
+	//for (auto one : radixsort::sort(data2))
+	//{
+	//	cout << one << ends;
+	//}
+	//cout << endl;
 
-	std::vector<int> data3{ 123,456,258,698,451,102,52,4,984 };
-	for (auto one : radixsort::sort(data3))
-	{
-		cout << one << ends;
-	}
-	cout << endl;
+	//std::vector<int> data3{ 123,456,258,698,451,102,52,4,984 };
+	//for (auto one : radixsort::sort(data3))
+	//{
+	//	cout << one << ends;
+	//}
+	//cout << endl;
 
-	std::vector<int> data4{ 123,456,258,888,451,102,52,4,984 };
+	//std::vector<int> data4{ 123,456,258,888,451,102,52,4,984 };
 
-	for (int k = 0; k != data4.size(); ++k)
+	//for (int k = 0; k != data4.size(); ++k)
+	//{
+	//	cout <<rselect::select(std::vector<int>(data4), 0, data4.size(),k) << ends;
+	//}
+	//cout << endl;
+
+	nnodebinarytree::Tree<int> tree{};
+	auto one = tree.getRoot();
+	auto two = tree.addChild(17, one);
+	tree.addChild(6, two);
+	tree.addSibling(8, two);
+	auto duo = tree.addSibling(14, one);
+	tree.addChild(10, duo);
+	tree.addSibling(12, duo);
+	tree.traverse(tree.getRoot(), [](int value)
 	{
-		cout <<rselect::select(std::vector<int>(data4), 0, data4.size(),k) << ends;
-	}
-	cout << endl;
+		if (value != 0)
+		{
+			cout << value << endl;
+		}
+	});
+
 }
 
 int main()
