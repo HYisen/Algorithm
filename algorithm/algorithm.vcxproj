@@ -146,6 +146,7 @@
     <ClInclude Include="bucketsort.h" />
     <ClInclude Include="heapsort.h" />
     <ClInclude Include="mergesort.h" />
+    <ClInclude Include="nnodebinarytree.h" />
     <ClInclude Include="quicksort.h" />
     <ClInclude Include="radixsort.h" />
     <ClInclude Include="rselect.h" />
